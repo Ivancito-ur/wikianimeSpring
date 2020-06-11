@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es"  xmlns:th="http://www.thymleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WikiAnime</title>
+
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+    <link rel="shortcut icon" href="https://img.icons8.com/metro/26/000000/yin-yang.png" />
+
+</head>
+
+<body style="background-color: #42AFAF;">
+    <nav class="navbar navbar-expand-lg navbar-light"
+        style="background-color: #002A32; position: fixed; width: 100%; z-index: 1001;">
+        <a class="navbar-brand" href="/perfil/" style="color: #00D6D6;">
+            <img src="https://img.icons8.com/metro/26/000000/yin-yang.png" width="30" height="30"
+                class="d-inline-block align-top" alt="" loading="lazy">
+            WikiAnime
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                </li>
+                <li class="nav-item">
+                </li>
+                <li class="nav-item dropdown">
+                </li>
+                <li class="nav-item">
+                </li>
+            </ul>
+            <div>
+                <a class="navbar-brand" href="/perfil/agregar_anime" style="color: #00D6D6;">
+                    Agregar Anime
+                </a>
+            </div>
+            <div>
+                <a class="navbar-brand" href="/perfil/agregar_temporada" style="color: #00D6D6;">
+                    Agregar Temporada
+                </a>
+            </div>
+            <div>
+                <form th:action="@{/logout}" th:method="post">
+                 
+                    <button type="submit" class="btn btn-info btn-lg" >
+                     Cerrar sesion
+                    </button> 
+                  </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container" style="padding-top: 75px;">
+        <div class="row">
+            <div class="col-8">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <h6>Nombre</h6>
+                        <span th:text="${temporada.nombre}"></span>
+                    </li>
+                    <li class="list-group-item">
+                        <h6>Anime</h6>
+                        <span th:text="${temporada.animeBean.getNombre()}"></span>
+                    </li>
+                    <li class="list-group-item">
+                        <h6>Capitulos</h6>
+                        <span th:text="${temporada.capitulo}"></span>
+                    </li>
+                    <li class="list-group-item">
+                        <h6>Por el Usuario</h6>
+                        <span th:text="${temporada.usuario.getUser()}"></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-4">
+                <img th:src="${temporada.imagen}" alt=""
+                    style="width: 100%; height: 100%; border-radius: 5px;">
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container" style="background: white; border-radius: 5px;">
+        <h5>Descripcion</h5>
+        <textarea style="text-align: justify; width: 100%; height: 500px; resize: none;" th:text="${temporada.descripcion}" readonly></textarea>
+    </div>
+</body>
+
+</html>

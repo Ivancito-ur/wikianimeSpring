@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es"  xmlns:th="http://www.thymleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WikiAnime</title>
+
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+    <link rel="shortcut icon" href="https://img.icons8.com/metro/26/000000/yin-yang.png" />
+
+</head>
+
+<body style="background-color: #42AFAF;">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #002A32; position: fixed; width: 100%;">
+        <a class="navbar-brand" href="/" style="color: #00D6D6;">
+            <img src="https://img.icons8.com/metro/26/000000/yin-yang.png" width="30" height="30"
+                class="d-inline-block align-top" alt="" loading="lazy">
+            WikiAnime
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                </li>
+                <li class="nav-item">
+                </li>
+                <li class="nav-item dropdown">
+                </li>
+                <li class="nav-item">
+                </li>
+            </ul>
+            <div>
+                <a class="navbar-brand" href="/registro/form" style="color: #00D6D6;">
+                    Registrarse
+                </a>
+            </div>
+            <div>
+                <a class="navbar-brand" href="/iniciar" style="color: #00D6D6;">
+                    Iniciar Sesion
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="container" style="padding-top: 85px;">
+        <div class="row">
+            <div class="col-5"><img src="https://i.pinimg.com/originals/38/70/e3/3870e3aea24429201ebbac73d7397af7.jpg"
+                    class="img-fluid" style="border-top-left-radius: 15px; border-bottom-left-radius: 15px;"></div>
+            <div class="col-7"
+                style="background-color: white; border-top-right-radius: 15px; border-bottom-right-radius: 15px; padding-top: 25px;">
+                <h4 style="color: #002A32;">Registrate</h4>
+                <form style="padding-top: 25px;" th:action="@{/registro/registrarUsuario}"  th:method="POST">
+                    <div class="form-group">
+                        <label for="exampleInputUser" style="color: #002A32;">Usuario</label>
+                        <input type="text" class="form-control" name="usuario" id="exampleInputUser" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1" style="color: #002A32;">Contraseña</label>
+                        <input type="password" class="form-control" name="clave"  id="exampleInputPassword1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail" style="color: #002A32;">Email</label>
+                        <input type="email" class="form-control" name="email"  id="exampleInputEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1" style="color: #002A32;">Genero Favorito</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="categoria">
+                            <option>Seleccionar</option>
+                            <option>Shonen</option>
+                            <option>Fantasia</option>
+                            <option>Accion</option>
+                            <option>Aventura</option>
+                            <option>Deportes</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary"
+                        style="background-color: #00D6D6; border-color: #00D6D6; color: #002A32;">Registrarse</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
